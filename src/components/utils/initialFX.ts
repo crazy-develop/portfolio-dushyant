@@ -5,7 +5,12 @@ import { lenis } from "../Navbar";
 export function initialFX() {
   document.body.style.overflowY = "auto";
   if (lenis) lenis.start();
-  document.getElementsByTagName("main")[0].classList.add("main-active");
+  const main = document.getElementsByTagName("main")[0];
+  if (main) {
+    main.classList.add("main-active");
+  } else {
+    console.warn("Main element not found during initialFX");
+  }
   gsap.to("body", {
     backgroundColor: "#0b080c",
     duration: 0.5,

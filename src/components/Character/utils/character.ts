@@ -46,6 +46,7 @@ const setCharacter = (
           undefined,
           (error) => {
             console.error("Error loading GLTF model:", error);
+            dracoLoader.dispose();
             reject(error);
           }
         );
