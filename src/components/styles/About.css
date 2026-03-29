@@ -48,7 +48,7 @@
 @media only screen and (min-width: 1025px) {
   .about-section {
     width: var(--cWidth);
-    justify-content: right;
+    justify-content: left;
     max-width: 1920px;
     height: var(--vh);
     padding: 0px;
