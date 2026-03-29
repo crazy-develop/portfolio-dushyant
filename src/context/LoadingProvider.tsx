@@ -5,7 +5,6 @@ import {
   useEffect,
   useState,
 } from "react";
-import Loading from "../components/Loading";
 
 interface LoadingType {
   isLoading: boolean;
@@ -14,21 +13,29 @@ interface LoadingType {
 }
 
 export const LoadingContext = createContext<LoadingType | null>(null);
-
 export const LoadingProvider = ({ children }: PropsWithChildren) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [loading, setLoading] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [, setLoading] = useState(0);
 
   const value = {
     isLoading,
     setIsLoading,
     setLoading,
   };
-  useEffect(() => {}, [loading]);
+  
+  useEffect(() => {
+    // Bypass loader and directly run the initial animations
+    import("../components/utils/initialFX").then((module) => {
+      setTimeout(() => {
+        if (module.initialFX) {
+          module.initialFX();
+        }
+      }, 500); // 500ms delay to allow the React tree to fully mount
+    }).catch(e => console.warn("Failed to load initialFX", e));
+  }, []);
 
   return (
     <LoadingContext.Provider value={value as LoadingType}>
-      {isLoading && <Loading percent={loading} />}
       <main className="main-body">{children}</main>
     </LoadingContext.Provider>
   );
