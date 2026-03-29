@@ -53,23 +53,51 @@ const Work = () => {
           My <span>Work</span>
         </h2>
         <div className="work-flex">
-          {[...Array(6)].map((_value, index) => (
-            <div className="work-box" key={index}>
-              <div className="work-info">
-                <div className="work-title">
-                  <h3>0{index + 1}</h3>
+          <div className="work-box">
+            <div className="work-info">
+              <div className="work-title">
+                <h3>01</h3>
 
-                  <div>
-                    <h4>Project Name</h4>
-                    <p>Category</p>
-                  </div>
+                <div>
+                  <h4>whatin.in</h4>
+                  <p>Educational Platform</p>
                 </div>
-                <h4>Tools and features</h4>
-                <p>Javascript, TypeScript, React, Threejs</p>
               </div>
-              <WorkImage image="/images/placeholder.webp" alt="" />
+              <h4>Tools and features</h4>
+              <p>Hostinger, UI/UX, Backend Resource Management</p>
             </div>
-          ))}
+            <WorkImage image="/images/placeholder.webp" alt="whatin.in" />
+          </div>
+          <div className="work-box">
+            <div className="work-info">
+              <div className="work-title">
+                <h3>02</h3>
+
+                <div>
+                  <h4>Workflow Automation</h4>
+                  <p>Automation & Integration</p>
+                </div>
+              </div>
+              <h4>Tools and features</h4>
+              <p>N8N, API Integration, Webhooks</p>
+            </div>
+            <WorkImage image="/images/placeholder.webp" alt="Automation Projects" />
+          </div>
+          <div className="work-box">
+            <div className="work-info">
+              <div className="work-title">
+                <h3>03</h3>
+
+                <div>
+                  <h4>Mini Projects</h4>
+                  <p>Web Applications</p>
+                </div>
+              </div>
+              <h4>Tools and features</h4>
+              <p>JavaScript, React, Vercel/Netlify</p>
+            </div>
+            <WorkImage image="/images/placeholder.webp" alt="Mini Projects" />
+          </div>
         </div>
       </div>
     </div>

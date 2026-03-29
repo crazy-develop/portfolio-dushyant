@@ -90,21 +90,21 @@ const WhatIDo = () => {
               <h3>DEVELOP</h3>
               <h4>Description</h4>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae.
+                Building high-performance web applications and educational
+                platforms with a focus on user experience and scalability.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
+                <div className="what-tags">HTML5</div>
+                <div className="what-tags">CSS</div>
                 <div className="what-tags">JavaScript</div>
                 <div className="what-tags">TypeScript</div>
-                <div className="what-tags">Three.js</div>
                 <div className="what-tags">React</div>
-                <div className="what-tags">Css</div>
-                <div className="what-tags">Node.js</div>
-                <div className="what-tags">Next.js</div>
-                <div className="what-tags">Express.js</div>
-                <div className="what-tags">PHP</div>
-                <div className="what-tags">MySql</div>
+                <div className="what-tags">C Programming</div>
+                <div className="what-tags">Three.js</div>
+                <div className="what-tags">Git/GitHub</div>
+                <div className="what-tags">Vercel/Netlify</div>
+                <div className="what-tags">Hostinger</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -128,22 +128,22 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>DESIGN</h3>
+              <h3>AUTOMATION</h3>
               <h4>Description</h4>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae
+                Streamlining complex business processes and integrating diverse
+                web services using modern automation tools.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">Blender</div>
-                <div className="what-tags">Zbrush</div>
-                <div className="what-tags">UI Design</div>
-                <div className="what-tags">Motion</div>
-                <div className="what-tags">Rigging</div>
-                <div className="what-tags">3D Animation</div>
-                <div className="what-tags">Character Design</div>
-                <div className="what-tags">Modelling</div>
+                <div className="what-tags">N8N</div>
+                <div className="what-tags">Workflow Automation</div>
+                <div className="what-tags">API Integration</div>
+                <div className="what-tags">N8N Optimization</div>
+                <div className="what-tags">Webhooks</div>
+                <div className="what-tags">Data Integration</div>
+                <div className="what-tags">Task Automation</div>
+                <div className="what-tags">Canva/MS Office</div>
               </div>
               <div className="what-arrow"></div>
             </div>

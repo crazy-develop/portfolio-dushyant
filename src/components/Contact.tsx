@@ -10,21 +10,21 @@ const Contact = () => {
           <div className="contact-box">
             <h4>Email</h4>
             <p>
-              <a href="mailto:example@mail.com" data-cursor="disable">
-                example@mail.com
+              <a href="mailto:dushyantsaini.whatin@gmail.com" data-cursor="disable">
+                dushyantsaini.whatin@gmail.com
               </a>
             </p>
             <h4>Phone</h4>
             <p>
-              <a href="tel:+9199999999" data-cursor="disable">
-                +91 99999 99999
+              <a href="tel:+919193465225" data-cursor="disable">
+                +91 91934 65225
               </a>
             </p>
           </div>
           <div className="contact-box">
             <h4>Social</h4>
             <a
-              href="https://github.com"
+              href="https://github.com/crazy-develop"
               target="_blank"
               data-cursor="disable"
               className="contact-social"
@@ -32,7 +32,7 @@ const Contact = () => {
               Github <MdArrowOutward />
             </a>
             <a
-              href="https://www.linkedin.com"
+              href="https://www.linkedin.com/in/dushyant-saini-whatin"
               target="_blank"
               data-cursor="disable"
               className="contact-social"
@@ -58,7 +58,7 @@ const Contact = () => {
           </div>
           <div className="contact-box">
             <h2>
-              Designed and Developed <br /> by <span>Moncy Yohannan</span>
+              Designed and Developed <br /> by <span>Dushyant Saini</span>
             </h2>
             <h5>
               <MdCopyright /> 2024

@@ -4,11 +4,13 @@ const About = () => {
   return (
     <div className="about-section" id="about">
       <div className="about-me">
-        <h3 className="title">About Me</h3>
+        <h3 className="title">Profile</h3>
         <p className="para">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis
-          dolores numquam iusto Ratione earum ducimus autem id iure pariatur
-          dolorum quae maiores.
+          Result-oriented Computer Science Engineering student with a strong
+          focus on Web Development and Automation. Proven ability to build
+          and maintain educational platforms like Whatin.in. Skilled in modern
+          deployment workflows, cloud hosting, and streamlining complex
+          processes using N8N automation.
         </p>
       </div>
     </div>
