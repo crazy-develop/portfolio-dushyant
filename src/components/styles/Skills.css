@@ -1,0 +1,47 @@
+/* Reusing career styles for consistency as requested by user */
+.career-section#skills {
+    margin-top: 100px;
+    margin-bottom: 200px;
+}
+
+@media only screen and (min-width: 1025px) {
+    .career-section#skills .career-container {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 100px;
+        width: 100%;
+    }
+
+    .career-section#skills .skills-title {
+        width: 40%;
+        text-align: left;
+        position: sticky;
+        top: 200px;
+        margin: 0;
+    }
+
+    .career-section#skills .career-info {
+        width: 55%;
+        margin: 0;
+    }
+}
+
+/* Skills section specific timeline tweak */
+#skills .career-timeline {
+    left: 0;
+    transform: none;
+}
+#skills .career-dot {
+    left: 0;
+    transform: translate(-50%, 50%);
+}
+#skills .career-info-in, #skills .career-info-box p {
+    padding-left: 40px;
+    width: 100%;
+}
+#skills .career-info-box {
+    flex-direction: column;
+    align-items: flex-start;
+}

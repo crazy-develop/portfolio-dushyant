@@ -133,37 +133,77 @@ export function setCharTimeline(
 }
 
 export function setAllTimeline() {
-  const careerTimeline = gsap.timeline({
+  const skillsTimeline = gsap.timeline({
     scrollTrigger: {
-      trigger: ".career-section",
+      trigger: "#skills",
       start: "top 30%",
       end: "100% center",
       scrub: true,
       invalidateOnRefresh: true,
     },
   });
-  careerTimeline
+
+  skillsTimeline
     .fromTo(
-      ".career-timeline",
+      "#skills .career-timeline",
       { maxHeight: "10%" },
       { maxHeight: "100%", duration: 0.5 },
       0
     )
-
     .fromTo(
-      ".career-timeline",
+      "#skills .career-timeline",
       { opacity: 0 },
       { opacity: 1, duration: 0.1 },
       0
     )
     .fromTo(
-      ".career-info-box",
+      "#skills .career-info-box",
       { opacity: 0 },
       { opacity: 1, stagger: 0.1, duration: 0.5 },
       0
     )
     .fromTo(
-      ".career-dot",
+      "#skills .career-dot",
+      { animationIterationCount: "infinite" },
+      {
+        animationIterationCount: "1",
+        delay: 0.3,
+        duration: 0.1,
+      },
+      0
+    );
+
+  const careerTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".career-section:not(#skills)",
+      start: "top 30%",
+      end: "100% center",
+      scrub: true,
+      invalidateOnRefresh: true,
+    },
+  });
+
+  careerTimeline
+    .fromTo(
+      ".career-section:not(#skills) .career-timeline",
+      { maxHeight: "10%" },
+      { maxHeight: "100%", duration: 0.5 },
+      0
+    )
+    .fromTo(
+      ".career-section:not(#skills) .career-timeline",
+      { opacity: 0 },
+      { opacity: 1, duration: 0.1 },
+      0
+    )
+    .fromTo(
+      ".career-section:not(#skills) .career-info-box",
+      { opacity: 0 },
+      { opacity: 1, stagger: 0.1, duration: 0.5 },
+      0
+    )
+    .fromTo(
+      ".career-section:not(#skills) .career-dot",
       { animationIterationCount: "infinite" },
       {
         animationIterationCount: "1",
@@ -174,17 +214,16 @@ export function setAllTimeline() {
     );
 
   if (window.innerWidth > 1024) {
-    careerTimeline.fromTo(
-      ".career-section",
+    skillsTimeline.fromTo(
+      "#skills",
       { y: 0 },
       { y: "20%", duration: 0.5, delay: 0.2 },
       0
     );
-  } else {
     careerTimeline.fromTo(
-      ".career-section",
+      ".career-section:not(#skills)",
       { y: 0 },
-      { y: 0, duration: 0.5, delay: 0.2 },
+      { y: "20%", duration: 0.5, delay: 0.2 },
       0
     );
   }
