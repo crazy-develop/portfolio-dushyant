@@ -32,7 +32,7 @@ const Career = () => {
                 <h4>Workflow Automation Analyst</h4>
                 <h5>Self-Led Projects</h5>
               </div>
-              <h3>2024</h3>
+              <h3>2025</h3>
             </div>
             <p>
               Optimized automated workflows using N8N. Managed version control
