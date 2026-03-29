@@ -102,6 +102,9 @@
   position: relative;
   width: var(--Lsize);
   overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .loading-content2 {
   position: relative;
@@ -123,12 +126,18 @@
 }
 
 .loading-content span {
-  font-weight: 300;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  opacity: 0.7;
+  font-weight: 500;
+  color: #c8bfff;
+  opacity: 0.9;
+  letter-spacing: 1px;
+  min-width: 45px;
+  text-align: right;
+  display: inline-block;
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+@keyframes pulse-glow {
+  0%, 100% { text-shadow: 0 0 5px rgba(200, 191, 255, 0.4); opacity: 0.8; }
+  50% { text-shadow: 0 0 15px rgba(200, 191, 255, 0.9); opacity: 1; }
 }
 .loading-box {
   position: absolute;

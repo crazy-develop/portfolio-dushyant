@@ -11,6 +11,18 @@ const Loading = ({ percent }: { percent: number }) => {
   const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
+    // FAIL-SAFE: If loading hangs for more than 10 seconds, force open the site
+    const failSafeTimer = setTimeout(() => {
+      setLoaded(true);
+      setTimeout(() => {
+        setIsLoaded(true);
+      }, 500);
+    }, 10000);
+
+    return () => clearTimeout(failSafeTimer);
+  }, []);
+
+  useEffect(() => {
     if (percent >= 100) {
       setTimeout(() => {
         setLoaded(true);
@@ -31,6 +43,12 @@ const Loading = ({ percent }: { percent: number }) => {
           }
           setIsLoading(false);
         }, 500);
+      }
+    }).catch(() => {
+      // If initialFX fails to import, just close the loading screen!
+      if (isLoaded) {
+        setClicked(true);
+        setTimeout(() => setIsLoading(false), 500);
       }
     });
   }, [isLoaded]);
@@ -64,13 +82,18 @@ const Loading = ({ percent }: { percent: number }) => {
       <div className="loading-screen">
         <div className="loading-marquee">
           <Marquee>
-            <span> A Creative Developer</span> <span>A Creative Designer</span>
-            <span> A Creative Developer</span> <span>A Creative Designer</span>
+            <span> Dushyant Saini </span> <span> Portfolio</span>
+            <span> Dushyant Saini </span> <span> portfolio</span>
           </Marquee>
         </div>
         <div
           className={`loading-wrap ${clicked && "loading-clicked"}`}
           onMouseMove={(e) => handleMouseMove(e)}
+          onClick={() => {
+            setLoaded(true);
+            setTimeout(() => setIsLoaded(true), 200);
+          }}
+          style={{ cursor: "pointer" }}
         >
           <div className="loading-hover"></div>
           <div className={`loading-button ${loaded && "loading-complete"}`}>
@@ -83,7 +106,7 @@ const Loading = ({ percent }: { percent: number }) => {
               <div className="loading-box"></div>
             </div>
             <div className="loading-content2">
-              <span>Welcome</span>
+              <span>welcome</span>
             </div>
           </div>
         </div>
@@ -94,44 +117,4 @@ const Loading = ({ percent }: { percent: number }) => {
 
 export default Loading;
 
-export const setProgress = (setLoading: (value: number) => void) => {
-  let percent: number = 0;
 
-  let interval = setInterval(() => {
-    if (percent <= 50) {
-      let rand = Math.round(Math.random() * 5);
-      percent = percent + rand;
-      setLoading(percent);
-    } else {
-      clearInterval(interval);
-      interval = setInterval(() => {
-        percent = percent + Math.round(Math.random());
-        setLoading(percent);
-        if (percent > 91) {
-          clearInterval(interval);
-        }
-      }, 300);
-    }
-  }, 100);
-
-  function clear() {
-    clearInterval(interval);
-    setLoading(100);
-  }
-
-  function loaded() {
-    return new Promise<number>((resolve) => {
-      clearInterval(interval);
-      interval = setInterval(() => {
-        if (percent < 100) {
-          percent++;
-          setLoading(percent);
-        } else {
-          resolve(percent);
-          clearInterval(interval);
-        }
-      }, 2);
-    });
-  }
-  return { loaded, percent, clear };
-};

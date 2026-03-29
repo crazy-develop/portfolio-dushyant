@@ -11,7 +11,7 @@ import {
   handleTouchMove,
 } from "./utils/mouseUtils";
 import setAnimations from "./utils/animationUtils";
-import { setProgress } from "../Loading";
+import { setProgress } from "../utils/progress";
 
 const Scene = () => {
   const canvasDiv = useRef<HTMLDivElement | null>(null);
@@ -37,7 +37,7 @@ const Scene = () => {
 
     if (canvasDiv.current) {
       const scene = sceneRef.current;
-      let progress = setProgress((value) => setLoading(value));
+      let progress = setProgress((value: number) => setLoading(value));
 
       try {
         let rect = canvasDiv.current.getBoundingClientRect();
