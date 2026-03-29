@@ -20,7 +20,8 @@ export const setProgress = (setLoading: (value: number) => void) => {
       clearInterval(interval);
       interval = setInterval(() => {
         if (percent < 100) {
-          percent++;
+          percent += Math.max(1, Math.floor((100 - percent) / 10)); // Accelerate curve
+          if (percent > 100) percent = 100;
           setLoading(percent);
         } else {
           resolve(percent);

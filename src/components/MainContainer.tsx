@@ -10,6 +10,7 @@ import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
+import { useLoading } from "../context/LoadingProvider";
 
 const TechStack = lazy(() => import("./TechStack"));
 
@@ -18,7 +19,12 @@ const MainContainer = ({ children }: PropsWithChildren) => {
     window.innerWidth > 1024
   );
 
+  const { finishLoading } = useLoading();
+
   useEffect(() => {
+    // Notify the LoadingProvider to drop the preloader state
+    finishLoading?.();
+
     const resizeHandler = () => {
       setSplitText();
       setIsDesktopView(window.innerWidth > 1024);

@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import setCharacter from "./utils/character";
 import setLighting from "./utils/lighting";
-import { useLoading } from "../../context/LoadingProvider";
 import handleResize from "./utils/resizeUtils";
 import {
   handleMouseMove,
@@ -11,13 +10,11 @@ import {
   handleTouchMove,
 } from "./utils/mouseUtils";
 import setAnimations from "./utils/animationUtils";
-import { setProgress } from "../utils/progress";
 
 const Scene = () => {
   const canvasDiv = useRef<HTMLDivElement | null>(null);
   const hoverDivRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef(new THREE.Scene());
-  const { setLoading } = useLoading();
 
   useEffect(() => {
     let isMounted = true;
@@ -37,7 +34,7 @@ const Scene = () => {
 
     if (canvasDiv.current) {
       const scene = sceneRef.current;
-      let progress = setProgress((value: number) => setLoading(value));
+
 
       try {
         let rect = canvasDiv.current.getBoundingClientRect();
@@ -81,17 +78,14 @@ const Scene = () => {
             scene.add(activeCharacter);
             headBone = activeCharacter.getObjectByName("spine006") || null;
             screenLight = activeCharacter.getObjectByName("screenlight") || null;
-            progress.loaded().then(() => {
-              setTimeout(() => {
-                light.turnOnLights();
-                animations.startIntro();
-              }, 2500);
-            });
+            setTimeout(() => {
+              light.turnOnLights();
+              animations.startIntro();
+            }, 500);
           }
         }).catch((e) => {
           if (!isMounted) return;
           console.error("Character Loader error:", e);
-          progress.loaded();
         });
 
         let mouse = { x: 0, y: 0 },
@@ -167,7 +161,6 @@ const Scene = () => {
         animate();
       } catch (e) {
         console.error("Three.js setup error:", e);
-        progress.loaded();
       }
     }
 
